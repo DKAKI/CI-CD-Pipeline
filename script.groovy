@@ -3,7 +3,7 @@ pipeline {
     stages {  
             stage ('Git-Checkout') {  
                 steps{
-                    git credentialsId: 'e6757c46-0750-4ab1-8cd4-c569efcbbdb1', url: 'https://github.com/sumyak/CI-CD-Pipeline.git'
+                    git credentialsId: 'eacd9126-5e1d-415d-8a01-4b93ef809895', url: 'https://github.com/DKAKI/CI-CD-Pipeline.git'
                     echo "Checkout successful";
                 } 
             }
@@ -31,7 +31,7 @@ pipeline {
             
         stage ('Deploy') {
             steps{
-            deploy adapters: [tomcat9(credentialsId: '0ec60cd3-c147-467b-bc23-ceabd7954e28', path: '', url: 'http://localhost:8081/')], contextPath: 'jenkins_calci', onFailure: false, war: '**/*.war'
+            deploy adapters: [tomcat9(credentialsId: 'd7cab280-c47c-4d73-9d66-ff05ba6bba00', path: '', url: 'http://localhost:8070/')], contextPath: 'jenkins_calci', onFailure: false, war: '**/*.war'
              echo "Deploy successful";
             }
         }
