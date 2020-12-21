@@ -14,7 +14,9 @@ import org.testng.annotations.Test;
   
 public class example {  
   
-    public static void main(String[] args) {  
+    @Test
+
+    public void test() throws Exception{
         
     // declaration and instantiation of objects/variables  
     System.setProperty("webdriver.chrome.driver", "D:\\chromedriver.exe");  
@@ -24,14 +26,28 @@ public class example {
     driver.get("http://google.com");
       
     this.takeSnapShot(driver, "C://test.png") ;
-      
-          
-   
-          
-    // Click on the male button  
-    driver.findElement(By.id("txt1")).click(); 
-     // you can do as many types of tests this is just a basic one  
+    
     }    
+public static void takeSnapShot(WebDriver webdriver,String fileWithPath) throws Exception{
 
+        //Convert web driver object to TakeScreenshot
+
+        TakesScreenshot scrShot =((TakesScreenshot)webdriver);
+
+        //Call getScreenshotAs method to create image file
+
+                File SrcFile=scrShot.getScreenshotAs(OutputType.FILE);
+
+            //Move image file to new destination
+
+                File DestFile=new File(fileWithPath);
+
+                //Copy file at destination
+
+                FileUtils.copyFile(SrcFile, DestFile);
+
+    }
+
+}
       
     }  
