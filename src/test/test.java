@@ -21,9 +21,9 @@ public class example {
     WebDriver driver=new ChromeDriver();  
       
 // Launch website  
-    driver.navigate().to("http://google.com");
+    driver.get("http://google.com");
       
-    this.takeSnapShot(driver, "c://test.png") ;
+    this.takeSnapShot(driver, "C://test.png") ;
       
           
    
@@ -31,7 +31,7 @@ public class example {
     // Click on the male button  
     driver.findElement(By.id("txt1")).click(); 
      // you can do as many types of tests this is just a basic one  
-    }      
+    }    
 
       
     }  
