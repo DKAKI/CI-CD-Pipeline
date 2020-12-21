@@ -4,6 +4,13 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;  
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import java.io.File;
+import org.apache.commons.io.FileUtils;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.testng.annotations.Test;
   
 public class example {  
   
@@ -14,20 +21,12 @@ public class example {
     WebDriver driver=new ChromeDriver();  
       
 // Launch website  
-    driver.navigate().to("http://localhost:9070/jenkins_calci");  
+    driver.navigate().to("http://google.com");
+      
+    this.takeSnapShot(driver, "c://test.png") ;
+      
           
-    String title = driver.getTitle();
-         System.out.print(title);
-         String s = "Welcome";
-         if(title.equals(s))
-         {
-          System.out.print("Title is equall");
-         }
-         else
-         {
-          System.out.print("Title is not equall");
-         }
-         driver.close();
+   
           
     // Click on the male button  
     driver.findElement(By.id("txt1")).click(); 
