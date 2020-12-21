@@ -16,7 +16,18 @@ public class example {
 // Launch website  
     driver.navigate().to("http://localhost:9070/jenkins_calci");  
           
-    
+    String title = driver.getTitle();
+         System.out.print(title);
+         String s = "Welcome";
+         if(title.equals(s))
+         {
+          System.out.print("Title is equall");
+         }
+         else
+         {
+          System.out.print("Title is not equall");
+         }
+         driver.close();
           
     // Click on the male button  
     driver.findElement(By.id("txt1")).click(); 
