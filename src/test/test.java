@@ -4,50 +4,32 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;  
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.openqa.selenium.support.ui.ExpectedConditions;
-import java.io.File;
-import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
-import org.testng.annotations.Test;
-  
+import org.openqa.selenium.chrome.ChromeDriver;  
 public class example {  
   
-    @Test
-
-    public void test() throws Exception{
+    public static void main(String[] args) {  
         
     // declaration and instantiation of objects/variables  
     System.setProperty("webdriver.chrome.driver", "D:\\chromedriver.exe");  
     WebDriver driver=new ChromeDriver();  
       
 // Launch website  
-    driver.get("http://google.com");
-      
-    this.takeSnapShot(driver, "C://test.png") ;
-    
+    driver.navigate().to("http://google.com");  
+    File screenshot = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
+        
+        //Copy the file to a location and use try catch block to handle exception
+        try {
+            FileUtils.copyFile(screenshot, new File("C:\\test\\test.png"));
+        } catch (IOException e) {
+            System.out.println(e.getMessage());
+        }
+        
+        //closing the webdriver
+        driver.close();
     }    
-public static void takeSnapShot(WebDriver webdriver,String fileWithPath) throws Exception{
 
-        //Convert web driver object to TakeScreenshot
-
-        TakesScreenshot scrShot =((TakesScreenshot)webdriver);
-
-        //Call getScreenshotAs method to create image file
-
-                File SrcFile=scrShot.getScreenshotAs(OutputType.FILE);
-
-            //Move image file to new destination
-
-                File DestFile=new File(fileWithPath);
-
-                //Copy file at destination
-
-                FileUtils.copyFile(SrcFile, DestFile);
-
-    }
-
-}
       
     }  
