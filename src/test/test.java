@@ -17,7 +17,7 @@ public class example {
     WebDriver driver=new ChromeDriver();  
       
 // Launch website  
-    driver.navigate().to("http://google.com");  
+    driver.get("http://google.com");  
     File screenshot = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
         
         //Copy the file to a location and use try catch block to handle exception
